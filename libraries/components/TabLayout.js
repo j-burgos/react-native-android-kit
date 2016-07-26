@@ -87,13 +87,17 @@ class TabLayout extends Component {
 		if(children) {
 			if(Array.isArray(children)) {
 				return children.some((obj, key, array) => {
-					if(obj.type.name !== 'TabAndroid' || obj.type.__proto__.name !== 'Tab')
-						return true;
+					if(__DEV__){
+						if(obj.type.name !== 'TabAndroid' || obj.type.__proto__.name !== 'Tab')
+						return true;	
+					}
 				});
 			}
 			else {
-				if(children.type.name !== 'TabAndroid' || children.type.__proto__.name !== 'Tab')
-					return true;
+				if(__DEV__){
+					if(children.type.name !== 'TabAndroid' || children.type.__proto__.name !== 'Tab')
+					return true;	
+				}
 			}
 		}
 
